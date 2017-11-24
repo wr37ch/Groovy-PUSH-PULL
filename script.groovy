@@ -14,7 +14,7 @@ static void main(String[] args) {
             println 'Type the name of the repo'
            // def choice = new Scanner(System.in).nextLine()
 
-            def get = new URL($/http://50.50.50.50:8081/service/siesta/rest/beta/components?repositoryId=${choice}/$).openConnection()
+            def get = new URL($/http://50.50.50.50:8081/service/siesta/rest/beta/components?repositoryId=maventask-release/$).openConnection()
             def getRC = get.getResponseCode()
             println(getRC)
             if (getRC.equals(200)) {
