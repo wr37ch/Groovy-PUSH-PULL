@@ -42,7 +42,7 @@ static void main(String[] args) {
             for (int i = 0; i < result.items.size(); i++) {
                 if (result.items[i].version == version ){
                     def a = result.items[i].assets[0].downloadUrl
-                    new File("Super-App-${version}"+".zip").withOutputStream { out ->
+                    new File("/opt/trash/Super-App-${version}"+".zip").withOutputStream { out ->
                         new URL(a).eachByte { b ->
                             out.write(b)
                         }
