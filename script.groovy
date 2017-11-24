@@ -1,11 +1,18 @@
+def action= System.getProperty('action')
+def choice = System.getProperty('choice')
+def version = System.getProperty('version')
+def ArtifID_U = System.getProperty('Artname')
+def GroupId_U = System.getProperty('Groupid')
+def Version_U = System.getProperty('Vid')
+def FilePath_U = System.getProperty('FP')
 static void main(String[] args) {
-    while (true){
+ //   while (true){
         def text
-        println 'What would you like to do? Write PULL/PUSH or exit'
-        def action = new Scanner(System.in).nextLine()
+       // println 'What would you like to do? Write PULL/PUSH or exit'
+       // def action = new Scanner(System.in).nextLine()
         if (action == "PULL") {
             println 'Type the name of the repo'
-            def choice = new Scanner(System.in).nextLine()
+           // def choice = new Scanner(System.in).nextLine()
 
             def get = new URL($/http://50.50.50.50:8081/service/siesta/rest/beta/components?repositoryId=${choice}/$).openConnection()
             def getRC = get.getResponseCode()
@@ -30,12 +37,12 @@ static void main(String[] args) {
                 println "id — "+result.items[i].id+ " )"
 
             }
-            println "Write down which version of artifact you'd like to download"
-            def artifact = new Scanner(System.in).nextLine()
+          //  println "Write down which version of artifact you'd like to download"
+           // def artifact = new Scanner(System.in).nextLine()
             for (int i = 0; i < result.items.size(); i++) {
-                if (result.items[i].version == artifact ){
+                if (result.items[i].version == version ){
                     def a = result.items[i].assets[0].downloadUrl
-                    new File("/opt/trash/Super-App-${artifact}"+".zip").withOutputStream { out ->
+                    new File("/opt/trash/Super-App-${version}"+".zip").withOutputStream { out ->
                         new URL(a).eachByte { b ->
                             out.write(b)
                         }
@@ -49,12 +56,12 @@ static void main(String[] args) {
         }
         else if(action == "PUSH"){
 
-            println("Enter GroupID")
-            def GroupId= new Scanner(System.in).nextLine()
-            println("Enter ArtifID")
-            def ArtifID= new Scanner(System.in).nextLine()
-            println("Enter Version")
-            def Version= new Scanner(System.in).nextLine()
+         //   println("Enter GroupID")
+         //   def GroupId= new Scanner(System.in).nextLine()
+          //  println("Enter ArtifID")
+           // def ArtifID= new Scanner(System.in).nextLine()
+           // println("Enter Version")
+           // def Version= new Scanner(System.in).nextLine()
 
 
             URL url = new URL("http://50.50.50.50:8081/repository/maventask-release/$GroupId/$ArtifID/$Version/$ArtifID-$Version"+".zip")
@@ -81,4 +88,4 @@ static void main(String[] args) {
             println "Choose the right option"
 
         }
-    }}
+    }
