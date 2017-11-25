@@ -70,7 +70,7 @@ def FilePath_U = System.getProperty('FP')
             httpCon.setDoOutput(true);
             httpCon.setRequestMethod("PUT");
             httpCon.setRequestProperty( "Authorization", "Basic ${authString}" )
-            def file = new File("/opt/trash/Super-App-10.zip").bytes
+            def file = new File($FP).bytes
             def out = new DataOutputStream(httpCon.outputStream)
             out.write(file);
             out.flush()
