@@ -5,7 +5,7 @@ def ArtifID_U = System.getProperty('Artname')
 def GroupId_U = System.getProperty('Groupid')
 def Version_U = System.getProperty('Vid')
 def FilePath_U = System.getProperty('FP')
-static void main(String[] args) {
+
  //   while (true){
         def text
        // println 'What would you like to do? Write PULL/PUSH or exit'
@@ -88,4 +88,4 @@ static void main(String[] args) {
             println "Choose the right option"
 
         }
-    }
+    
