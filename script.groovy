@@ -54,7 +54,7 @@ def FilePath_U = System.getProperty('FP')
 
 
         }
-        else if(action == "PUSH"){
+        else {
 
          //   println("Enter GroupID")
          //   def GroupId= new Scanner(System.in).nextLine()
@@ -81,11 +81,6 @@ def FilePath_U = System.getProperty('FP')
 
 
         }
-        else if(action == "exit"){
-            break
-        }
-        else {
-            println "Choose the right option"
-
-        }
+        
+        
     
