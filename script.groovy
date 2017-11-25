@@ -1,10 +1,11 @@
 def action= System.getProperty('action')
 def choice = System.getProperty('choice')
 def version = System.getProperty('version')
-def ArtifID_U = System.getProperty('Artname')
-def GroupId_U = System.getProperty('Groupid')
-def Version_U = System.getProperty('Vid')
-def FilePath_U = System.getProperty('FP')
+// UPload parameters
+def ArtifID = System.getProperty('Artname')
+def GroupId = System.getProperty('Groupid')
+def Version = System.getProperty('Vid')
+def FilePath = System.getProperty('FP')
 
  //   while (true){
         def text
@@ -70,7 +71,7 @@ def FilePath_U = System.getProperty('FP')
             httpCon.setDoOutput(true);
             httpCon.setRequestMethod("PUT");
             httpCon.setRequestProperty( "Authorization", "Basic ${authString}" )
-            def file = new File($FP).bytes
+            def file = new File($FilePath).bytes
             def out = new DataOutputStream(httpCon.outputStream)
             out.write(file);
             out.flush()
