@@ -23,7 +23,7 @@ def FilePath_U = System.getProperty('FP')
             }
             else if (!getRC.equals(200)){
                 println("Can't connect to this repo, check repo name")
-                continue
+               
             }
             def slurper = new groovy.json.JsonSlurper()
             def result = slurper.parseText(text)
