@@ -71,7 +71,7 @@ def FilePath = System.getProperty('FP')
             httpCon.setDoOutput(true);
             httpCon.setRequestMethod("PUT");
             httpCon.setRequestProperty( "Authorization", "Basic ${authString}" )
-            def file = new File($FilePath).bytes
+            def file = new File(FilePath).bytes
             def out = new DataOutputStream(httpCon.outputStream)
             out.write(file);
             out.flush()
