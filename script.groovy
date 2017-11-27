@@ -1,4 +1,4 @@
-def action= System.getProperty('action')
+1 def action= System.getProperty('action')
 def choice = System.getProperty('choice')
 def version = System.getProperty('version')
 // UPload parameters
